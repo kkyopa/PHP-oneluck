@@ -17,10 +17,14 @@ $name = $_POST['note'];
     <?php echo $name; ?>
 
 
+
     <?php
-    $dbName = 'root';
-    $host = ''
+    $pdo=new PDO('mysql:host=127.0.0.1;dbname=root;charset=utf8');
     ?>
+    <?php
+    try {
+      $sql =
+    }
 
 
 
