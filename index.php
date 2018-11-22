@@ -19,12 +19,13 @@ $name = $_POST['note'];
 
 
     <?php
-    $pdo=new PDO('mysql:host=127.0.0.1;dbname=root;charset=utf8');
+    $pdo=new PDO('mysql:host=127.0.0.1;dbname=SAMPLE;charset=utf8', 'root', 'root');
     ?>
     <?php
-    try {
-      $sql =
-    }
+    //try {
+    //  $sql =
+    //}
+    ?>
 
 
 
