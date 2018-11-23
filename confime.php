@@ -26,7 +26,7 @@
     echo $line;
   ?>
 
-  <form action="index.php" method="post">
+  <form action="/register.php" method="post">
     <input type="hidden" name="note" value="<?php echo $name; ?>">
     <input type="submit" value="登録する">
     <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="戻る">
