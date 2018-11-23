@@ -1,5 +1,5 @@
 #データベース作成のコマンド
-CREATE DATABASE SAMPLE
+CREATE DATABASE SAMPLE;
 
 
 #デーブル作成時のコマンド

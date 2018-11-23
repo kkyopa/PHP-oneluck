@@ -17,9 +17,13 @@ $name = $_POST['note'];
     <?php echo $name; ?>
 
 
-
     <?php
-    $pdo=new PDO('mysql:host=127.0.0.1;dbname=SAMPLE;charset=utf8', 'root', 'root');
+    $pdo=new PDO('mysql:host=127.0.0.1;dbname=mysql;charset=utf8', 'root', 'hoge');
+    $sql = "INSERT INTO lucks (id,content) VALUES (:1,:name)";
+    $sql = "SELECT * FROM lucks";
+
+    var_dump($pdo);
+
     ?>
     <?php
     //try {

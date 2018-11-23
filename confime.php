@@ -1,5 +1,5 @@
 <input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿">
-<input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="一日一善の投稿">
+
 <br> <br>
 <h3>本文</h3>
 <?php
@@ -29,6 +29,7 @@
   <form action="index.php" method="post">
     <input type="hidden" name="note" value="<?php echo $name; ?>">
     <input type="submit" value="登録する">
+    <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="戻る">
   </form>
   </body>
 </html>
