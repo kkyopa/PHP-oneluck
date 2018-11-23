@@ -4,8 +4,20 @@
 # バージョン
 PHP7
 
+# 前提
+- vagrant
+- virtualbox
+
 # Setup
-後日記載
+```
+vagrant up
+vagrant ssh
+
+sudo apt-get update
+sudo apt-get install nginx php-fpm
+sudo apt-get install mysql-server mysql-client
+sudo apt-get install php-mysql php-mbstring
+```
 
 # Authors
 川田京助。
