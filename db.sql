@@ -1,6 +1,10 @@
 #データベース作成のコマンド
-CREATE DATABASE SAMPLE;
+CREATE DATABASE SAMPLE CHARACTER SET UTF-8;
 
 
 #デーブル作成時のコマンド
-CREATE TABLE lucks(user_id int(11),content varchar(255),image varchar(255) );
+CREATE TABLE lucks(
+    id int(11)  AUTO_INCREMENT,
+    content varchar(255),
+    PRIMARY KEY (id)
+);
