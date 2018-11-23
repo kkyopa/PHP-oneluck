@@ -1,9 +1,3 @@
-<?php
-$name = $_POST['note'];
-?>
-
-
-
 <!DOCTYPE html>
 <html>
 　<head>
@@ -14,24 +8,28 @@ $name = $_POST['note'];
     <input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿">
     <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="一日一善の投稿">
     <h1>みんなの一日一善</h1>
-    <?php echo $name; ?>
+    <?php //echo $name; ?>
 
 
     <?php
-    $pdo=new PDO('mysql:host=127.0.0.1;dbname=mysql;charset=utf8', 'root', 'hoge');
-    $sql = "INSERT INTO lucks (id,content) VALUES (:1,:name)";
+    $password = 'root';
+    $pdo=new PDO('mysql:host=127.0.0.1;dbname=SAMPLE;charset=utf8', 'root', $password);
     $sql = "SELECT * FROM lucks";
+    error_log("sql=" . $sql);
+    $stm = $pdo->prepare($sql);
+    $stm->execute();
+    $record_list = $stm->fetchAll();
 
-    var_dump($pdo);
+    echo "<table border='1'>";
+    foreach($record_list as $record) {
+        echo "<tr>";
+        echo "<td>" . $record['id'] . "</td>";
+        echo "<td>" . $record['content'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
 
     ?>
-    <?php
-    //try {
-    //  $sql =
-    //}
-    ?>
-
-
 
   </body>
 </html>
