@@ -17,6 +17,7 @@ $stm->execute();
     <meta charset="utf-8">
 </head>
 <body>
+  <h1>登録が完了しました。</h1>
 <a href="/">もどる</a>
 </body>
 
