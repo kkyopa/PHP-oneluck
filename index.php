@@ -31,10 +31,9 @@
        print('<input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">');
        print('<input type="submit" value="削除"></form></td>');
 
-       print('<td><form method="POST" action="edit.php">');
-       print('<input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">');
-       print('<input type="submit" value="変更"></form></td>');
-       echo "</tr>";
+       print('<td>');
+       echo '<a href="/edit_menu.php?id='.$record['id'].'">編集</a>';
+       echo "</td></tr>";
     }
     echo "</table>";
     ?>
