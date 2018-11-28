@@ -10,8 +10,10 @@
     <h1>みんなの一日一善</h1>
 
     <?php
-    $password = 'hoge';
-    $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', $password);
+
+    require_once('config.php');
+
+    $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $sql = "SELECT id, content FROM lucks";
     error_log("sql=" . $sql);
     $stm = $pdo->prepare($sql);
