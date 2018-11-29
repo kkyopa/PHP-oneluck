@@ -1,7 +1,7 @@
 <?php
 $name = $_POST['note'];
-$password = 'hoge';
-$pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', $password);
+require_once('config.php');
+$pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
 $sql = "INSERT INTO lucks (content) VALUES ('" . $name . "')";
 error_log("sql=" . $sql);
 $stm = $pdo->prepare($sql);

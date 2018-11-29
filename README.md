@@ -19,5 +19,13 @@ sudo apt-get install mysql-server mysql-client
 sudo apt-get install php-mysql php-mbstring
 ```
 
+# DB準備
+- config.php.default を config.php にコピーして、パスワードは手元のmysqlの物に書き換える
+```
+cp config.php.default config.php
+```
+
+
+
 # Authors
 川田京助。
