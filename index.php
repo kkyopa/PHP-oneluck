@@ -33,6 +33,9 @@
 
        print('<td>');
        echo '<a href="/edit_menu.php?id='.$record['id'].'">編集</a>';
+       print('</td>');
+       print('<td>');
+       echo '<a href="/show.php?id='.$record['id'].'">詳細</a>';
        echo "</td></tr>";
     }
     echo "</table>";
