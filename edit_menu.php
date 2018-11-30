@@ -18,11 +18,11 @@ $record = $results[0];
     <meta charset="utf-8">
 </head>
 <body>
-<h1>みんなの一日一善</h1>
+<h1>編集画面</h1>
 
 <form action="edit_exec.php" method="post">
 <?php
-echo "<table border='10'>";
+echo "<table border='1'>";
     echo "<tr>";
         echo "<td>内容</td>";
         echo "<td><input type='text' name='content' value='" . $record['content'] . "'/></td>";
