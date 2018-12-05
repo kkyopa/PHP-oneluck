@@ -14,7 +14,7 @@
     require_once('config.php');
 
     $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
-    $sql = "SELECT id, content FROM lucks";
+    $sql = "SELECT * FROM lucks";
     error_log("sql=" . $sql);
     $stm = $pdo->prepare($sql);
     $stm->execute();
@@ -26,6 +26,11 @@
         echo "<tr>";
         echo "<td>" . $record['id'] . "</td>";
         echo "<td>" . $record['content'] . "</td>";
+        if ($record['attach_filename']) {
+            echo "<td><img src='./images/" . $record['attach_filename'] . "'/></td>";
+        } else {
+            echo "<td>no image</td>";
+        }
 
        print('<td><form method="POST" action="delete.php">');
        print('<input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">');
