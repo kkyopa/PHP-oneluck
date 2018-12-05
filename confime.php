@@ -48,6 +48,7 @@
     if ($is_file_upload) {
     ?>
     <input type="hidden" name="tmp_file_path" value="<?php echo $tmp_upload_path; ?>">
+    <img src="<?php echo $tmp_upload_path; ?>"/>
     <?php
     }
     ?>
