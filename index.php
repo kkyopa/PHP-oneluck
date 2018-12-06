@@ -21,6 +21,8 @@
     $record_list = $stm->fetchAll();
 
 
+
+
     echo "<table border='10'>";
     foreach($record_list as $record) {
         echo "<tr>";
