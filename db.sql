@@ -6,5 +6,6 @@ use one_luck;
 CREATE TABLE lucks(
     id int(11)  AUTO_INCREMENT,
     content varchar(255),
+    attach_filename varchar(255),
     PRIMARY KEY (id)
 );

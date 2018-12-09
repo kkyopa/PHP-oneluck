@@ -6,6 +6,20 @@ $sql = "INSERT INTO lucks (content) VALUES ('" . $name . "')";
 error_log("sql=" . $sql);
 $stm = $pdo->prepare($sql);
 $stm->execute();
+$id = $pdo->lastInsertId();
+
+
+if (!empty($_POST['tmp_file_path'])) {
+    $tmp_file_path = $_POST['tmp_file_path'];
+    $arr = explode('.', $tmp_file_path);
+    $ext = end($arr);
+    $fname = $id . '.' . $ext;
+    rename($tmp_file_path, './images/' . $fname);
+    $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = ".$id;
+    error_log("sql=" . $sql);
+    $stm = $pdo->prepare($sql);
+    $stm->execute();
+}
 
 // 好みで location で リダイレクト
 ?>
