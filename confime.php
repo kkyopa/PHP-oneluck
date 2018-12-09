@@ -9,11 +9,13 @@
 
 
 <?php
+  $is_file_upload = false;
   //ファイルの保存先
-  $upload = './images/'.$_FILES['file_upload']['name'];
+  $tmp_upload_path = './images/'.$_FILES['file_upload']['name'];
   //アップロードが正しく完了したかチェック
-  if(move_uploaded_file($_FILES['file_upload']['tmp_name'], $upload)){
+  if(move_uploaded_file($_FILES['file_upload']['tmp_name'], $tmp_upload_path)){
     echo 'アップロード完了';
+    $is_file_upload = true;
   }else{
     echo 'アップロード失敗';
   }
@@ -42,6 +44,14 @@
 
   <form action="/register.php" method="post">
     <input type="hidden" name="note" value="<?php echo $name; ?>">
+    <?php
+    if ($is_file_upload) {
+    ?>
+    <input type="hidden" name="tmp_file_path" value="<?php echo $tmp_upload_path; ?>">
+    <img src="<?php echo $tmp_upload_path; ?>"/>
+    <?php
+    }
+    ?>
     <input type="submit" value="登録する">
     <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="戻る">
   </form>
