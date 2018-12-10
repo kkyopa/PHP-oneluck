@@ -14,6 +14,7 @@ CREATE TABLE lucks(
 CREATE TABLE mypage(
     id int(11)  AUTO_INCREMENT,
     name varchar(255),
+    email varchar(30),
     password varchar(50),
     attach_filename varchar(255),
     PRIMARY KEY (id)
