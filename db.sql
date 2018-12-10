@@ -9,3 +9,12 @@ CREATE TABLE lucks(
     attach_filename varchar(255),
     PRIMARY KEY (id)
 );
+
+#デーブル作成時のコマンド
+CREATE TABLE mypage(
+    id int(11)  AUTO_INCREMENT,
+    name varchar(255),
+    password varchar(50),
+    attach_filename varchar(255),
+    PRIMARY KEY (id)
+);
