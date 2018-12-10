@@ -16,16 +16,16 @@ $user='root';
 $password='hoge';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-$sql='SELECT name FROM mypage WHERE name=? AND email=? password=?';
+$sql='SELECT name FROM mypage WHERE email=? AND password=?';
 $stmt=$dbh->prepare($sql);
-$data[]=$mypage_name;
+$data[]=$mypage_email;
 $data[]=$mypage_pass;
 $stmt->execute($data);
 $dbh=null;
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 if($rec==false)
 {
-	print 'スタッフコードかパスワードが間違っています。<br />';
+	print 'メールアドレスかパスワードが間違っています。<br />';
 	print '<a href="login_new.html"> 戻る</a>';
 }
 else
