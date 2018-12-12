@@ -1,4 +1,5 @@
 <?php
+
 try
 {
 $mypage_name=$_POST['name'];
@@ -9,12 +10,9 @@ $mypage_name=htmlspecialchars($mypage_name,ENT_QUOTES,'UTF-8');
 $mypage_email=htmlspecialchars($mypage_email,ENT_QUOTES,'UTF-8');
 $mypage_pass=htmlspecialchars($mypage_pass,ENT_QUOTES,'UTF-8');
 
+require_once('config.php');
 
-$mypage_pass=md5($mypage_pass);
-$dsn='mysql:dbname=  one_luck;host=localhost;charset=utf8';
-$user='root';
-$password='hoge';
-$dbh=new PDO($dsn,$user,$password);
+$dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 $sql='SELECT name FROM mypage WHERE email=? AND password=?';
 $stmt=$dbh->prepare($sql);
@@ -30,7 +28,11 @@ if($rec==false)
 }
 else
 {
-	header('Location:sign_up.php');
+	session_start();
+	$_SESSION['login']=1;
+	$_SESSION['mypage_email']=$rec['email'];
+	$_SESSION['mypage_pass']=$rec['pass'];
+	header('Location:mypage.php');
 	exit();
 }
 }
