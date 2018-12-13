@@ -9,7 +9,7 @@
 <?php
   $is_file_upload = false;
   //ファイルの保存先
-  $tmp_upload_path = '/mypage_images/'.$_FILES['file_upload']['name'];
+  $tmp_upload_path = './mypage_images/'.$_FILES['file_upload']['name'];
   //アップロードが正しく完了したかチェック
   if(move_uploaded_file($_FILES['file_upload']['tmp_name'], $tmp_upload_path)){
     echo 'アップロード完了';
