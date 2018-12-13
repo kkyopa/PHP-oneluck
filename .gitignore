@@ -2,3 +2,4 @@
 .vagrant
 config.php
 images
+templates_c/*.php
