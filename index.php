@@ -20,7 +20,7 @@
         echo $record["name"] . "さん、ログイン中";
 
      } else { ?>
-    <a href="/login/login_check.php">ログイン</a>
+    <a href="/login/">ログイン</a>
     <?php } ?>
     <input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿">
     <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="一日一善の投稿">
