@@ -2,7 +2,7 @@
 $name = $_POST['note'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
-require_once('config.php');
+  require_once('../config.php');
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
 $sql = "INSERT INTO mypage (name) VALUES ('" . $name . "')";
 $sql = "INSERT INTO mypage (email) VALUES ('" . $email . "')";
@@ -19,7 +19,7 @@ if (!empty($_POST['tmp_file_path'])) {
     $ext = end($arr);
     $fname = $id . '.' . $ext;
     rename($tmp_file_path, './mypage_images/' . $fname);
-    $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = ".$id;
+    $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = ".$id;
     error_log("sql=" . $sql);
     $stm = $pdo->prepare($sql);
     $stm->execute();
@@ -36,7 +36,6 @@ if (!empty($_POST['tmp_file_path'])) {
 </head>
 <body>
   <h1>登録が完了しました。</h1>
-<a href="/">もどる</a>
+<input type="button" onClick="location.href='http://192.168.33.10:3000/login/index.html'" value="ログイン画面へ">
 </body>
-
 </html>
