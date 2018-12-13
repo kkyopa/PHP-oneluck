@@ -31,10 +31,7 @@ try
     else
     {
         session_start();
-        $_SESSION['login']=1;
         $_SESSION['id']=$rec['id'];
-        $_SESSION['mypage_email']=$rec['email'];
-        $_SESSION['mypage_pass']=$rec['pass'];
         header('Location: /mypage/mypage.php');
         exit();
     }
