@@ -12,7 +12,7 @@ try
     $mypage_email=htmlspecialchars($mypage_email,ENT_QUOTES,'UTF-8');
     $mypage_pass=htmlspecialchars($mypage_pass,ENT_QUOTES,'UTF-8');
 
-    require_once('../config.php');
+  require_once('config.php');
 
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
