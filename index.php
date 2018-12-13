@@ -5,6 +5,23 @@
     <meta charset="utf-8">
   </head>
   <body>
+    <?php
+    session_start();
+    if ($_SESSION['id']) {
+        require_once('config.php');
+
+        $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql='SELECT name FROM mypage WHERE id=?';
+        $stmt=$dbh->prepare($sql);
+        $params = [$_SESSION['id']];
+        $stmt->execute($params);
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo $record["name"] . "さん、ログイン中";
+
+     } else { ?>
+    <a href="/login/login_check.php">ログイン</a>
+    <?php } ?>
     <input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿">
     <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="一日一善の投稿">
     <h1>みんなの一日一善</h1>
