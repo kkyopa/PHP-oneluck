@@ -32,8 +32,8 @@
     echo $line;
   ?><br>
 
-  <?php echo $name?><br>
-  <?php echo $email?><br>
+  <?php echo "あなたのお名前:".$name?><br>
+  <?php echo "あなたのアドレス:".$email?><br>
   <?php echo "あなたが決めたパスワード" ?><br>
 
   <?php
@@ -42,7 +42,7 @@
 
   <?php echo "こちらの内容で間違いないですか？" ?><br><br>
 
-  <form action="/sign_register.php" method="post">
+  <form action="./sign_register.php" method="post">
     <input type="hidden" name="note" value="<?php echo $name; ?>">
     <input type="hidden" name="email" value="<?php echo $email; ?>">
     <input type="hidden" name="pass" value="<?php echo $pass; ?>">
