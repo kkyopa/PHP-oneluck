@@ -1,6 +1,7 @@
 <input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿"><br><br>
 
 <?php
+require_once('../config.php');
 session_start();
 //var_dump($_SESSION);die;
 if(! isset($_SESSION['id']))
