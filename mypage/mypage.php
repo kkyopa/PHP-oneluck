@@ -1,4 +1,4 @@
-<input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿"><br><br>
+<input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/index.php'" value="みんなの投稿"><br><br>
 
 <?php
 require_once('../config.php');

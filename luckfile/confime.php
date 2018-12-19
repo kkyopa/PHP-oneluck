@@ -1,4 +1,4 @@
-<input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿">
+<input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/index.php'" value="みんなの投稿">
 
 <br> <br>
 <h3>本文</h3>
@@ -42,7 +42,7 @@
     echo $line;
   ?>
 
-  <form action="/register.php" method="post">
+  <form action="/luckfile/register.php" method="post">
     <input type="hidden" name="note" value="<?php echo $name; ?>">
     <?php
     if ($is_file_upload) {
