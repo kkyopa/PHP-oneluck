@@ -1,12 +1,11 @@
 <?php
+require_once('../config.php');
+
 $name = $_POST['note'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
-require_once('config.php');
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
-$sql = "INSERT INTO mypage (name) VALUES ('" . $name . "')";
-$sql = "INSERT INTO mypage (email) VALUES ('" . $email . "')";
-$sql = "INSERT INTO mypage (password) VALUES ('" . $pass . "')";
+$sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
 error_log("sql=" . $sql);
 $stm = $pdo->prepare($sql);
 $stm->execute();
