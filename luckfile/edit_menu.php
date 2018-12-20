@@ -14,5 +14,6 @@ $record = $results[0];
 
 
 $smarty = new Smarty();
+$smarty->assign("id", $record['id']);
 $smarty->assign("content", $record['content']);
 $smarty->display('edit.tpl');
