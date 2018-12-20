@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+require_once('lib/smarty/Smarty.class.php');
 $db = new PDO('mysql:host=localhost;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
 $stt = $db->prepare('SELECT * FROM lucks WHERE id=:id');
 $stt->bindParam(':id', $_GET['id']);
@@ -10,32 +11,8 @@ if (empty($results)) {
     exit();
 }
 $record = $results[0];
-?>
-<!DOCTYPE html>
-<html>
-　<head>
-    　  <title>みんなの投稿</title>
-    <meta charset="utf-8">
-</head>
-<body>
-<h1>編集画面</h1>
-
-<form action="edit_exec.php" method="post">
-<?php
-echo "<table border='1'>";
-    echo "<tr>";
-        echo "<td>内容</td>";
-        echo "<td><input type='text' name='content' value='" . $record['content'] . "'/></td>";
-    echo "</tr>";
 
 
-    echo "</table>";
-?>
-
-<input type="hidden" name="id" value="<?php echo $record['id'];?>"/>
-
-<input type="submit" value="編集" />
-</form>
-
-</body>
-</html>
+$smarty = new Smarty();
+$smarty->assign("content", $record['content']);
+$smarty->display('edit.tpl');
