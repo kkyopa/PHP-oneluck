@@ -31,7 +31,7 @@
     <?php
 
     require_once('../config.php');
-
+    require_once('lib/smarty/Smarty.class.php');
     $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $sql = "SELECT * FROM lucks";
     error_log("sql=" . $sql);
@@ -42,16 +42,18 @@
 
 
 
-    echo "<table border='10'>";
-    foreach($record_list as $record) {
-        echo "<tr>";
-        echo "<td>" . $record['id'] . "</td>";
-        echo "<td>" . $record['content'] . "</td>";
-        if ($record['attach_filename']) {
-            echo "<td><img src='./images/" . $record['attach_filename'] . "'/></td>";
-        } else {
-            echo "<td>no image</td>";
-        }
+    $record_list = $results[0];
+
+    $smarty = new Smarty();
+    $smarty->assign("id", $record_list['id']);
+    $smarty->assign("content", $record_list['content']);
+    $smarty->display('show.tpl');
+    if ($record_list['attach_filename']) {
+        echo "<td><img src='./images/" . $record['attach_filename'] . "'/></td>";
+    } else {
+        echo "<td>no image</td>";
+    }
+
 
        print('<td><form method="POST" action="delete.php">');
        print('<input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">');
