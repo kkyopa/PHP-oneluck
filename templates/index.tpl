@@ -21,6 +21,7 @@
 <input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">
 <input type="submit" value="削除"></form></td>
 
+
  <td>
 <a href="/luckfile/edit_menu.php?id='.$record['id'].'">編集</a>
 </td>

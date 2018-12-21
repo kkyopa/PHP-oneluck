@@ -54,7 +54,6 @@ if ($record_list['attach_filename']) {
     echo "<td>no image</td>";
 }
 
-
 $smarty->assign('indexdata', $record_list);
 $smarty->display('index.tpl');
 ?>
