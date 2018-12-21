@@ -40,33 +40,27 @@
     $record_list = $stm->fetchAll();
 
 
-
-
     $record_list = $results[0];
 
+
     $smarty = new Smarty();
+    $smarty->template_dir = '../templates/';
+    $smarty->compile_dir  = '../templates_c/';
+    $smarty->config_dir   = '../configs/';
+    $smarty->cache_dir    = '../cache/';
+
+
+
+
     $smarty->assign("id", $record_list['id']);
     $smarty->assign("content", $record_list['content']);
-    $smarty->display('show.tpl');
     if ($record_list['attach_filename']) {
-        echo "<td><img src='./images/" . $record['attach_filename'] . "'/></td>";
+        echo "<td><img src='./images/" . $record_list['attach_filename'] . "'/></td>";
     } else {
         echo "<td>no image</td>";
     }
+    $smarty->display('index.tpl');
 
 
-       print('<td><form method="POST" action="delete.php">');
-       print('<input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">');
-       print('<input type="submit" value="削除"></form></td>');
-
-       print('<td>');
-       echo '<a href="/luckfile/edit_menu.php?id='.$record['id'].'">編集</a>';
-       print('</td>');
-       print('<td>');
-       echo '<a href="/luckfile/show.php?id='.$record['id'].'">詳細</a>';
-       echo "</td></tr>";
-    }
-    echo "</table>";
-    ?>
   </body>
 </html>
