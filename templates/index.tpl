@@ -15,10 +15,10 @@
 
 
         {if $current.attach_filename}
-          <td><img src='./images/"$current.attach_filename'/></td>
+          <td><img src='/images/$current.attach_filename'/></td>
         {else}
           <td>no image</td>
-         {/if}
+        {/if}
 
 
         <td><form method="POST" action="delete.php">
