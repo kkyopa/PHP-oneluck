@@ -36,26 +36,19 @@
     $stm->execute();
     $record_list = $stm->fetchAll();
 
+
+//echo "<pre>";
+//var_dump($record_list);die;
+//echo "</pre>”;
+
     $smarty = new Smarty();
     $smarty->template_dir = '../templates/';
     $smarty->compile_dir  = '../templates_c/';
     $smarty->config_dir   = '../configs/';
     $smarty->cache_dir    = '../cache/';
-
-$record_list = array(
-  "id" => "$id",
-  "content" => "$content",
-)
-
-
-if ($record_list['attach_filename']) {
-    echo "<td><img src='./images/" . $record['attach_filename'] . "'/></td>";
-} else {
-    echo "<td>no image</td>";
-}
-
 $smarty->assign('indexdata', $record_list);
 $smarty->display('index.tpl');
+
 ?>
   </body>
 </html>
