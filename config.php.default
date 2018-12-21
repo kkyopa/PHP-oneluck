@@ -1,6 +1,6 @@
 <?php
 
-define("DB_PASSWORD", "hoge");
+define("DB_PASSWORD", "root");
 
 // アプリケーショントップディレクトリを include path に追加
 $org_include_path = ini_get('include_path');

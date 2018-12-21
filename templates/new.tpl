@@ -6,8 +6,7 @@
     <link href="./style.css" rel="stylesheet" type="text/css">
   </head>
 <body>
-  <input type="button" onClick="location.href='http://192.168.33.10:3000/index.php'" value="みんなの投稿">
-  <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="一日一善の投稿">
+  <input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/index.php'" value="みんなの投稿">
 <div>
   <h1>投稿画面</h1>
   <form action="confime.php" method="post" enctype="multipart/form-data">

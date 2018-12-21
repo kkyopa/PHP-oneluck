@@ -1,4 +1,7 @@
+<input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/index.php'" value="みんなの投稿"><br><br>
+
 <?php
+require_once('../config.php');
 session_start();
 //var_dump($_SESSION);die;
 if(! isset($_SESSION['id']))
@@ -8,7 +11,7 @@ if(! isset($_SESSION['id']))
       exit();
 } else {
 
-    require_once('../config.php');
+    require_once('config.php');
 
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
