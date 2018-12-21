@@ -17,7 +17,7 @@
   </tr>
 </table>
 
-<input type="hidden" name="id" value='{$record['id']}'/>
+<input type="hidden" name="id" value='{$id}'/>
 <input type="submit" value="編集" />
 </form>
 </body>
