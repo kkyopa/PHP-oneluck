@@ -53,7 +53,7 @@
     }
     ?>
     <input type="submit" value="登録する">
-    <input type="button" onClick="location.href='http://192.168.33.10:3000/new.php'" value="戻る">
+    <input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/new.php'" value="戻る">
   </form>
   </body>
 </html>
