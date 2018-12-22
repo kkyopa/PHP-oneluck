@@ -47,6 +47,7 @@
     $smarty->config_dir   = '../configs/';
     $smarty->cache_dir    = '../cache/';
 $smarty->assign('indexdata', $record_list);
+
 $smarty->display('index.tpl');
 
 ?>

@@ -24,15 +24,14 @@ if (!empty($_POST['tmp_file_path'])) {
 // 好みで location で リダイレクト
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>みんなの投稿</title>
-    <meta charset="utf-8">
-</head>
-<body>
-  <h1>登録が完了しました。</h1>
-<a href="/luckfile/index.php">もどる</a>
-</body>
+<?php
+require_once('../config.php');
+require_once('lib/smarty/Smarty.class.php');
 
-</html>
+$smarty = new Smarty();
+$smarty->template_dir = '../templates/';
+$smarty->compile_dir  = '../templates_c/';
+$smarty->config_dir   = '../configs/';
+$smarty->cache_dir    = '../cache/';
+$smarty->display('register.tpl');
+?>
