@@ -28,33 +28,28 @@
 
     <?php
     require_once('../config.php');
+    require_once('lib/smarty/Smarty.class.php');
     $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $sql = "SELECT * FROM lucks";
     error_log("sql=" . $sql);
     $stm = $pdo->prepare($sql);
     $stm->execute();
     $record_list = $stm->fetchAll();
-    echo "<table border='10'>";
-    foreach($record_list as $record) {
-        echo "<tr>";
-        echo "<td>" . $record['id'] . "</td>";
-        echo "<td>" . $record['content'] . "</td>";
-        if ($record['attach_filename']) {
-            echo "<td><img src='./images/" . $record['attach_filename'] . "'/></td>";
-        } else {
-            echo "<td>no image</td>";
-        }
-       print('<td><form method="POST" action="delete.php">');
-       print('<input type="hidden" name="id" value="'.htmlspecialchars($record['id'], ENT_QUOTES | ENT_HTML5, 'UTF-8').'">');
-       print('<input type="submit" value="削除"></form></td>');
-       print('<td>');
-       echo '<a href="/luckfile/edit_menu.php?id='.$record['id'].'">編集</a>';
-       print('</td>');
-       print('<td>');
-       echo '<a href="/luckfile/show.php?id='.$record['id'].'">詳細</a>';
-       echo "</td></tr>";
-    }
-    echo "</table>";
-    ?>
+
+
+//echo "<pre>";
+//var_dump($record_list);die;
+//echo "</pre>”;
+
+    $smarty = new Smarty();
+    $smarty->template_dir = '../templates/';
+    $smarty->compile_dir  = '../templates_c/';
+    $smarty->config_dir   = '../configs/';
+    $smarty->cache_dir    = '../cache/';
+$smarty->assign('indexdata', $record_list);
+
+$smarty->display('index.tpl');
+
+?>
   </body>
 </html>
