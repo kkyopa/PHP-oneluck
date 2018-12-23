@@ -15,7 +15,9 @@
 
 
         {if $current.attach_filename}
+
           <td><img src='/luckfile/images/{$current.attach_filename}'/></td>
+
         {else}
           <td>no image</td>
         {/if}
