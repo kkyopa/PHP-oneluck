@@ -15,6 +15,7 @@ if (!empty($_POST['tmp_file_path'])) {
     $ext = end($arr);
     $fname = $id . '.' . $ext;
     rename($tmp_file_path, '../luckfile/images/' . $fname);
+
     $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = ".$id;
     error_log("sql=" . $sql);
     $stm = $pdo->prepare($sql);
