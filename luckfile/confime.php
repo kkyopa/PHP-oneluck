@@ -1,14 +1,8 @@
-<input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/index.php'" value="みんなの投稿">
 
-<br> <br>
-<h3>本文</h3>
 <?php
   $name = $_POST['note'];
   echo $name;
-?>
 
-
-<?php
   $is_file_upload = false;
   //ファイルの保存先
   $tmp_upload_path = './images/'.$_FILES['file_upload']['name'];
@@ -20,7 +14,6 @@
     echo 'アップロード失敗';
   }
 ?>
-
 
 
 <!DOCTYPE html>
@@ -36,18 +29,18 @@
     echo $line;
   ?><br>
 
-  <?php echo $name."でよろしいですか？"; ?><br>
-
+  <?php echo $name."でよろしいですか？";?>
+  <br>
   <?php
-    echo $line;
+  echo $line;
   ?>
 
   <form action="/luckfile/register.php" method="post">
-    <input type="hidden" name="note" value="<?php echo $name; ?>">
+    <input type="hidden" name="note" value="{$name}">
     <?php
     if ($is_file_upload) {
     ?>
-    <input type="hidden" name="tmp_file_path" value="<?php echo $tmp_upload_path; ?>">
+    <input type="hidden" name="tmp_file_path" value="{$tmp_upload_path}">
     <img src="<?php echo $tmp_upload_path; ?>"/>
     <?php
     }
@@ -55,5 +48,24 @@
     <input type="submit" value="登録する">
     <input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/new.php'" value="戻る">
   </form>
+
+
+<?php
+
+
+  $smarty = new Smarty();
+  require_once('lib/smarty/Smarty.class.php');
+  $smarty->template_dir = '../templates/';
+  $smarty->compile_dir  = '../templates_c/';
+  $smarty->config_dir   = '../configs/';
+  $smarty->cache_dir    = '../cache/';
+  $smarty->assign('note', $name);
+    $smarty->assign('image', $$is_file_upload);
+    $smarty->assign('line', $line);
+    $smarty->assign("gazou", $tmp_upload_path);
+  $smarty->display('confime.tpl');
+
+?>
+
   </body>
 </html>
