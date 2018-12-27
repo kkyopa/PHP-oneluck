@@ -24,6 +24,7 @@
 
     <?php } ?>
     <input type="button" onClick="location.href='http://192.168.33.10:3000/luckfile/new.php'" value="一日一善の投稿">
+    <input type="button" onClick="location.href='http://192.168.33.10:3000/mypage/mypage.php'" value="マイページ">
     <h1>みんなの一日一善</h1>
 
     <?php

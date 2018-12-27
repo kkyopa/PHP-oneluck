@@ -3,10 +3,7 @@
   $name = $_POST['note'];
   $email = $_POST['email'];
   $pass = $_POST['pass'];
-?>
 
-
-<?php
   $is_file_upload = false;
   //ファイルの保存先
   $tmp_upload_path = './mypage_images/'.$_FILES['file_upload']['name'];
@@ -17,47 +14,19 @@
   }else{
     echo 'アップロード失敗';
   }
-?>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>確認画面</title>
-    <meta charset="utf-8">
-  </head>
-<body>
-  <h1>確認画面</h1>
-  <?php
-    $line = "===================";
-    echo $line;
-  ?><br>
-
-  <?php echo "あなたのお名前:".$name?><br>
-  <?php echo "あなたのアドレス:".$email?><br>
-  <?php echo "あなたが決めたパスワード" ?><br>
-
-  <?php
-    echo $line;
-  ?><br>
-
-  <?php echo "こちらの内容で間違いないですか？" ?><br><br>
-
-  <form action="./sign_register.php" method="post">
-    <input type="hidden" name="note" value="<?php echo $name; ?>">
-    <input type="hidden" name="email" value="<?php echo $email; ?>">
-    <input type="hidden" name="pass" value="<?php echo $pass; ?>">
 
 
-    <?php
-    if ($is_file_upload) {
-    ?>
-    <input type="hidden" name="tmp_file_path" value="<?php echo $tmp_upload_path; ?>">
-    <img src="<?php echo $tmp_upload_path; ?>"/>
-    <?php
-    }
-    ?>
-    <input type="submit" value="登録する">
-    <input type="button" onClick="location.href='http://192.168.33.10:3000/login/sign_up.php'" value="戻る">
-  </form>
-  </body>
-</html>
+    require_once('../config.php');
+    require_once('lib/smarty/Smarty.class.php');
+    $smarty = new Smarty();
+    $smarty->template_dir = '../templates/';
+    $smarty->compile_dir  = '../templates_c/';
+    $smarty->config_dir   = '../configs/';
+    $smarty->cache_dir    = '../cache/';
+    $smarty->assign('note', $name);
+    $smarty->assign('email', $email);
+    $smarty->assign('pass', $pass);
+    $smarty->assign('line',"===================");
+    $smarty->assign('upload', $is_file_upload);
+    $smarty->assign('image', $tmp_upload_path);
+    $smarty->display('sign_confime.tpl');

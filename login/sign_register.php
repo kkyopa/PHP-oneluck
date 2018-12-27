@@ -24,17 +24,14 @@ if (!empty($_POST['tmp_file_path'])) {
     $stm->execute();
 }
 
+
+require_once('../config.php');
+require_once('lib/smarty/Smarty.class.php');
+$smarty = new Smarty();
+$smarty->template_dir = '../templates/';
+$smarty->compile_dir  = '../templates_c/';
+$smarty->config_dir   = '../configs/';
+$smarty->cache_dir    = '../cache/';
+$smarty->display('sign_register.tpl');
 // 好みで location で リダイレクト
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>みんなの投稿</title>
-    <meta charset="utf-8">
-</head>
-<body>
-  <h1>登録が完了しました。</h1>
-<input type="button" onClick="location.href='http://192.168.33.10:3000/login/index.html'" value="ログイン画面へ">
-</body>
-</html>
