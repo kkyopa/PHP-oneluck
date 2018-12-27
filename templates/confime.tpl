@@ -6,11 +6,11 @@
   </head>
   <body>
       <h1>確認画面</h1>
-      <h1>{$line}</h1>
+      <h2>{$line}</h2>
 
-      <p>{$noteでよろしいですか？}</p>
-
-      <h1>{$line}</h1>
+      <p>「{$note}」でよろしいですか？</p>
+　　　
+      <h2>{$line}</h2>
 
 
       <form action="/luckfile/register.php" method="post">
