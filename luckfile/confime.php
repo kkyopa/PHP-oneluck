@@ -18,6 +18,7 @@
 ?>
 
 <?php
+  require_once('../config.php');
   require_once('lib/smarty/Smarty.class.php');
   $smarty = new Smarty();
   $smarty->template_dir = '../templates/';
