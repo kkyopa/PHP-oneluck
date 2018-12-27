@@ -27,7 +27,7 @@ try
     if($rec==false)
     {
         print 'メールアドレスかパスワードが間違っています。<br />';
-        print '<a href="login_new.html"> 戻る</a>';
+        print '<a href="/login/index.html"> 戻る</a>';
     }
     else
     {
