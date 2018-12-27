@@ -20,6 +20,15 @@ if(! isset($_SESSION['id']))
     $stmt->execute([$_SESSION['id']]);
     $dbh=null;
     $rec=$stmt->fetch(PDO::FETCH_ASSOC);
-    echo $rec["name"]."さん、ようこそ";
+    echo $rec["name"]."さん、ようこそ<br>";
+    echo "メールアドレス".$rec["email"];
+    echo "<br>";
+    echo "プロフィール画像";
+    echo "<br>";
+    if ($rec['attach_filename']) {
+      echo "<td><img src='../login/mypage_images/" . $rec['attach_filename'] . "'/></td>";
+    } else {
+      echo "<td>no image</td>";
+    }
 }
 ?>
