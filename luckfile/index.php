@@ -33,11 +33,13 @@
     require_once('lib/smarty/Smarty.class.php');
     $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $luck = new Luck();
-    $$record_list = $luck->getLuckByAll();
+    $record_list = $luck->getLuckByAll($id,$content,$attach_filename,$deleted_at);
 
-//echo "<pre>";
-//var_dump($record_list);die;
-//echo "</pre>”;
+
+    // echo "<pre>";
+    // var_dump($luck);die;
+    // echo "<pre>";
+
 
     $smarty = new Smarty();
     $smarty->template_dir = '../templates/';

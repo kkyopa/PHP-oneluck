@@ -30,7 +30,7 @@
           return $this->db->lastInsertId();
         }
 
-     public function getLuckByAll(){
+     public function getLuckByAll($id,$content,$attach_filename,$deleted_at){
           $sql = "SELECT * FROM lucks";
           error_log("sql=" . $sql);
           $stm = $pdo->prepare($sql);
