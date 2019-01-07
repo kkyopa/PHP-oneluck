@@ -18,6 +18,7 @@ if (!empty($_POST['tmp_file_path'])) {
     error_log("sql=" . $sql);
     $stm = $pdo->prepare($sql);
     $stm->execute();
+      // $mypages = $mypage->getMypageByImage($fname);
 }
 
 

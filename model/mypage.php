@@ -49,5 +49,12 @@ class Mypage {
     $rec=$stmt->fetch(PDO::FETCH_ASSOC);
     return $rec;
     }
+
+    public function getMypageByImage($fname){
+      $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = ".$id;
+      error_log("sql=" . $sql);
+      $stm = $pdo->prepare($sql);
+      $stm->execute();
+    }
 }
  ?>
