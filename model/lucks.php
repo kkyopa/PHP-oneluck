@@ -1,5 +1,5 @@
 <?php
- require_once("config.php");
+ require_once("../config.php");
 
  class Luck {
      private $db;
@@ -10,9 +10,10 @@
          $host = 'localhost';
          $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
          $this->db = new PDO($dsn, $user, $password);
-        }
+         // var_dump($this->db);die;
+    }
 
-     public function getLuckByContent($name){
+     public function addContent($name){
          $sql = "INSERT INTO lucks (content) VALUES ('" . $name . "')";
          error_log("sql=" . $sql);
          $stm = $this->db->prepare($sql);
@@ -21,13 +22,13 @@
          return $this->db->lastInsertId();
         }
 
-     public function getLuckByImage($fname){
+     public function updateImage($fname){
           $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = ".$id;
           error_log("sql=" . $sql);
           $stm = $this->db->prepare($sql);
           $stm->execute();
           return $this->db->lastInsertId();
-        }
+    }
 
      public function getLuckByAll($id,$content,$attach_filename,$deleted_at){
           $sql = "SELECT * FROM lucks";
@@ -36,5 +37,5 @@
           $stm->execute();
           $record_list = $stm->fetchAll();
           return $record_list;
-        }
+     }
 }
