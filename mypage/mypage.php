@@ -12,14 +12,12 @@ if(! isset($_SESSION['id']))
 } else {
 
     require_once('config.php');
-
+    require_once("model/mypage.php");
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $sql='SELECT * FROM mypage WHERE id=?';
-    $stmt=$dbh->prepare($sql);
-    $stmt->execute([$_SESSION['id']]);
-    $dbh=null;
-    $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+    $mypage = new Mypage();
+    $rec = $mypage->getMypageByUsers($name);
+
     echo $rec["name"]."さん、ようこそ<br>";
     echo "メールアドレス".$rec["email"];
     echo "<br>";

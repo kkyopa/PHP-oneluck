@@ -1,16 +1,12 @@
 <?php
 require_once('../config.php');
-
+require_once("model/mypage.php");
 $name = $_POST['note'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
-$sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
-error_log("sql=" . $sql);
-$stm = $pdo->prepare($sql);
-$stm->execute();
-$id = $pdo->lastInsertId();
-
+$mypage = new Mypage();
+$mypages = $mypage->addMypageByUser($name,$email,$pass);
 
 if (!empty($_POST['tmp_file_path'])) {
     $tmp_file_path = $_POST['tmp_file_path'];

@@ -1,6 +1,6 @@
 <?php
 
-class mypage {
+class Mypage {
   private $db;
   function __construct() {
     $user = root;
@@ -12,33 +12,42 @@ class mypage {
 }
 
 
-    public function getMypageByName($name){
+    public function getIndexByName($name){
       $sql='SELECT name FROM mypage WHERE id=?';
-      $stmt=$dbh->prepare($sql);
+      $stmt=$this->db->prepare($sql);
       $params = [$_SESSION['id']];
       $stmt->execute($params);
       $record = $stmt->fetch(PDO::FETCH_ASSOC);
       return $record;
     }
 
-    public function getMypageByUser($name){
+    public function addMypageByUser($name,$email,$pass){
       $sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
       error_log("sql=" . $sql);
-      $stm = $pdo->prepare($sql);
+      $stm = $this->db->prepare($sql);
       $stm->execute();
       // $id = $pdo->lastInsertId();
       return $this->db->lastInsertId();
     }
 
-    public function getMypageByUser($name){
+    public function loginMypageByUser($mypage_email,$mypage_pass){
       $sql='SELECT * FROM mypage WHERE email=? AND password=?';
-      $stmt=$dbh->prepare($sql);
+      $stmt=$this->db->prepare($sql);
       $data[]=$mypage_email;
       $data[]=$mypage_pass;
       $stmt->execute($data);
-      $dbh=null;
+      $this->db=null;
       $rec=$stmt->fetch(PDO::FETCH_ASSOC);
       return $rec;
+    }
+
+   public function getMypageByUsers($name){
+    $sql='SELECT * FROM mypage WHERE id=?';
+    $stmt=$this->db->prepare($sql);
+    $stmt->execute([$_SESSION['id']]);
+    $this->db=null;
+    $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+    return $rec;
     }
 }
  ?>
