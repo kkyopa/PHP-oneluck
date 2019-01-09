@@ -14,9 +14,8 @@ if (!empty($_POST['tmp_file_path'])) {
     $ext = end($arr);
     $fname = $id . '.' . $ext;
     rename($tmp_file_path, './mypage_images/' . $fname);
-    $mypages = $mypage->addMypageByImage($id,$fname);
+    $myimage = $mypage->addMypageByImage($mypages,$fname);
 }
-
 
 require_once('../config.php');
 require_once('lib/smarty/Smarty.class.php');
