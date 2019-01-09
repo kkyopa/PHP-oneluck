@@ -50,10 +50,10 @@ class Mypage {
     return $rec;
     }
 
-    public function getMypageByImage($fname){
+    public function addMypageByImage($id,$fname){
       $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = ".$id;
       error_log("sql=" . $sql);
-      $stm = $pdo->prepare($sql);
+      $stm = $this->db->prepare($sql);
       $stm->execute();
     }
 }
