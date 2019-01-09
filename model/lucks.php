@@ -10,7 +10,6 @@
          $host = 'localhost';
          $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
          $this->db = new PDO($dsn, $user, $password);
-         // var_dump($this->db);die;
     }
 
      public function addContent($name){
@@ -18,11 +17,10 @@
          error_log("sql=" . $sql);
          $stm = $this->db->prepare($sql);
          $stm->execute();
-      // $id = $pdo->lastInsertId();
          return $this->db->lastInsertId();
-        }
+    }
 
-     public function updateImage($fname){
+     public function updateImage($id,$fname){
           $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = ".$id;
           error_log("sql=" . $sql);
           $stm = $this->db->prepare($sql);
