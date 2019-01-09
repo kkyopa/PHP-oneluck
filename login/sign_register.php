@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $pass = $_POST['pass'];
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
 $mypage = new Mypage();
-$mypages = $mypage->addMypageByUser($name,$email,$pass);
+$id = $mypage->addMypageByUser($name,$email,$pass);
 
 if (!empty($_POST['tmp_file_path'])) {
     $tmp_file_path = $_POST['tmp_file_path'];
@@ -14,7 +14,7 @@ if (!empty($_POST['tmp_file_path'])) {
     $ext = end($arr);
     $fname = $id . '.' . $ext;
     rename($tmp_file_path, './mypage_images/' . $fname);
-    $id = $mypage->addMypageByImage($mypages,$fname);
+    $id = $mypage->addMypageByImage($id,$fname);
 }
 
 require_once('../config.php');
