@@ -14,7 +14,7 @@ if (!empty($_POST['tmp_file_path'])) {
     $ext = end($arr);
     $fname = $id . '.' . $ext;
     rename($tmp_file_path, './mypage_images/' . $fname);
-    $myimage = $mypage->addMypageByImage($mypages,$fname);
+    $id = $mypage->addMypageByImage($mypages,$fname);
 }
 
 require_once('../config.php');
