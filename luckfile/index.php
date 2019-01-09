@@ -9,13 +9,11 @@
     session_start();
     if ($_SESSION['id']) {
         require_once('../config.php');
+        require_once("model/mypage.php");
         $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql='SELECT name FROM mypage WHERE id=?';
-        $stmt=$dbh->prepare($sql);
-        $params = [$_SESSION['id']];
-        $stmt->execute($params);
-        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        $mypage = new Mypage();
+        $record = $mypage->getIndexByName($name);
         echo $record["name"] . "さん、ログイン中";
         echo '<a href="/login/logout.php">ログアウト</a>';
      } else { ?>
