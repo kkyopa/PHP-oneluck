@@ -7,7 +7,6 @@ $pass = $_POST['pass'];
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
 $mypage = new Mypage();
 $id = $mypage->addMypageByUser($name,$email,$pass);
-
 if (!empty($_POST['tmp_file_path'])) {
     $tmp_file_path = $_POST['tmp_file_path'];
     $arr = explode('.', $tmp_file_path);
@@ -16,7 +15,6 @@ if (!empty($_POST['tmp_file_path'])) {
     rename($tmp_file_path, './mypage_images/' . $fname);
     $id = $mypage->addMypageByImage($id,$fname);
 }
-
 require_once('../config.php');
 require_once('lib/smarty/Smarty.class.php');
 $smarty = new Smarty();
@@ -25,5 +23,3 @@ $smarty->compile_dir  = '../templates_c/';
 $smarty->config_dir   = '../configs/';
 $smarty->cache_dir    = '../cache/';
 $smarty->display('sign_register.tpl');
-// 好みで location で リダイレクト
-?>
