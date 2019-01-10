@@ -16,7 +16,7 @@ if($_SESSION['id']) {
     $record = $mypage->getIndexByName($name);
     echo $record["name"] . "さん、ログイン中";
     echo '<a href="/login/logout.php">ログアウト</a>';
-}else{ ?>
+} else { ?>
 
 <a href="/login/">ログイン</a>
 <a href="/login/sign_up.php">サインアップ</a>

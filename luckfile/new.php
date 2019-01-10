@@ -7,4 +7,3 @@ $smarty->compile_dir  = '../templates_c/';
 $smarty->config_dir   = '../configs/';
 $smarty->cache_dir    = '../cache/';
 $smarty->display('new.tpl');
-?>
