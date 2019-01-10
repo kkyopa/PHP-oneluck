@@ -1,5 +1,4 @@
 <?php
-
 class Mypage {
   private $db;
   function __construct() {
@@ -10,7 +9,6 @@ class Mypage {
     $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
     $this->db = new PDO($dsn, $user, $password);
 }
-
 
     public function getIndexByName($name){
       $sql='SELECT name FROM mypage WHERE id=?';
@@ -29,7 +27,6 @@ class Mypage {
       // $id = $pdo->lastInsertId();
       return $this->db->lastInsertId();
     }
-
     public function loginMypageByUser($mypage_email,$mypage_pass){
       $sql='SELECT * FROM mypage WHERE email=? AND password=?';
       $stmt=$this->db->prepare($sql);
@@ -40,7 +37,6 @@ class Mypage {
       $rec=$stmt->fetch(PDO::FETCH_ASSOC);
       return $rec;
     }
-
    public function getMypageByUsers($name){
     $sql='SELECT * FROM mypage WHERE id=?';
     $stmt=$this->db->prepare($sql);
@@ -49,7 +45,6 @@ class Mypage {
     $rec=$stmt->fetch(PDO::FETCH_ASSOC);
     return $rec;
     }
-
     public function addMypageByImage($id,$fname){
       $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = ".$id;
       error_log("sql=" . $sql);

@@ -27,26 +27,20 @@
 
     <?php
     require_once('../config.php');
+    require_once("model/lucks.php");
     require_once('lib/smarty/Smarty.class.php');
     $pdo=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
-    $sql = "SELECT * FROM lucks";
-    error_log("sql=" . $sql);
-    $stm = $pdo->prepare($sql);
-    $stm->execute();
-    $record_list = $stm->fetchAll();
-
-
-//echo "<pre>";
-//var_dump($record_list);die;
-//echo "</pre>”;
-
+    $luck = new Luck();
+    $record_list = $luck->getLuckByAll($id,$content,$attach_filename,$deleted_at);
+    // echo "<pre>";
+    // var_dump($record);die;
+    // echo "<pre>";
     $smarty = new Smarty();
     $smarty->template_dir = '../templates/';
     $smarty->compile_dir  = '../templates_c/';
     $smarty->config_dir   = '../configs/';
     $smarty->cache_dir    = '../cache/';
 $smarty->assign('indexdata', $record_list);
-
 $smarty->display('index.tpl');
 
 ?>
