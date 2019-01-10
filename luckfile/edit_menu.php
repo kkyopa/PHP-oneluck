@@ -6,7 +6,7 @@ $stt = $db->prepare('SELECT * FROM lucks WHERE id=:id');
 $stt->bindParam(':id', $_GET['id']);
 $stt->execute();
 $results = $stt->fetchAll();
-if(empty($results)) {
+if (empty($results)) {
     header('Location:http://192.168.33.10:3000/luckfile/index.php');
     exit();
 }

@@ -7,7 +7,7 @@
 <body>
 <?php
 session_start();
-if($_SESSION['id']) {
+if ($_SESSION['id']) {
     require_once('../config.php');
     require_once("model/mypage.php");
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
