@@ -9,6 +9,7 @@ class Mypage {
     $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
     $this->db = new PDO($dsn, $user, $password);
 }
+
     public function getIndexByName($name){
       $sql='SELECT name FROM mypage WHERE id=?';
       $stmt=$this->db->prepare($sql);
@@ -17,6 +18,7 @@ class Mypage {
       $record = $stmt->fetch(PDO::FETCH_ASSOC);
       return $record;
     }
+
     public function addMypageByUser($name,$email,$pass){
       $sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
       error_log("sql=" . $sql);
