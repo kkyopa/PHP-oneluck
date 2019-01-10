@@ -15,7 +15,7 @@ try
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
     $rec = $mypage->loginMypageByUser($mypage_email,$mypage_pass);
-    if ($rec==false) {
+    if ($rec == false) {
         print 'メールアドレスかパスワードが間違っています。<br />';
         print '<a href="/login/index.html"> 戻る</a>';
     }

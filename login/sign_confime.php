@@ -10,7 +10,7 @@ $tmp_upload_path = './mypage_images/'.$_FILES['file_upload']['name'];
 if (move_uploaded_file($_FILES['file_upload']['tmp_name'], $tmp_upload_path)) {
     echo 'アップロード完了';
         $is_file_upload = true;
-}else{
+} else {
     echo 'アップロード失敗';
 }
 require_once('../config.php');
