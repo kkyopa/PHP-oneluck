@@ -22,7 +22,7 @@ class Mypage
         return $record;
     }
 
-    public function addMypageByUser($name,$email,$pass)
+    public function addMypageByUser($name, $email, $pass)
     {
         $sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
         error_log("sql=" . $sql);
@@ -31,7 +31,7 @@ class Mypage
         return $this->db->lastInsertId();
     }
 
-    public function loginMypageByUser($mypage_email,$mypage_pass)
+    public function loginMypageByUser($mypage_email, $mypage_pass)
     {
         $sql='SELECT * FROM mypage WHERE email=? AND password=?';
         $stmt=$this->db->prepare($sql);
@@ -53,7 +53,7 @@ class Mypage
         return $rec;
     }
 
-    public function addMypageByImage($id,$fname)
+    public function addMypageByImage($id, $fname)
     {
         $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = " .$id;
         error_log("sql=" . $sql);

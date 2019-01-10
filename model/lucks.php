@@ -13,7 +13,7 @@
         $this->db = new PDO($dsn, $user, $password);
     }
 
-    public function addContent($id,$fname)
+    public function addContent($id, $fname)
     {
         $sql = "INSERT INTO lucks (content) VALUES ('" . $name . "')";
         error_log("sql=" . $sql);
@@ -22,7 +22,7 @@
         return $this->db->lastInsertId();
     }
 
-    public function updateImage($id,$fname)
+    public function updateImage($id, $fname)
     {
         $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = " .$id;
         error_log("sql=" . $sql);
@@ -31,7 +31,7 @@
         return $this->db->lastInsertId();
     }
 
-    public function getLuckByAll($id,$fname)
+    public function getLuckByAll($id, $fname)
     {
         $sql = "SELECT * FROM lucks";
         error_log("sql=" . $sql);
