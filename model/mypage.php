@@ -11,6 +11,7 @@ class Mypage
         $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
         $this->db = new PDO($dsn, $user, $password);
     }
+
     public function getIndexByName($name)
     {
         $sql='SELECT name FROM mypage WHERE id=?';
@@ -20,6 +21,7 @@ class Mypage
         $record = $stmt->fetch(PDO::FETCH_ASSOC);
         return $record;
     }
+
     public function addMypageByUser($name,$email,$pass)
     {
         $sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
@@ -28,6 +30,7 @@ class Mypage
         $stm->execute();
         return $this->db->lastInsertId();
     }
+
     public function loginMypageByUser($mypage_email,$mypage_pass)
     {
         $sql='SELECT * FROM mypage WHERE email=? AND password=?';
@@ -39,6 +42,7 @@ class Mypage
         $rec=$stmt->fetch(PDO::FETCH_ASSOC);
         return $rec;
     }
+
     public function getMypageByUsers($name)
     {
         $sql='SELECT * FROM mypage WHERE id=?';
@@ -48,9 +52,10 @@ class Mypage
         $rec=$stmt->fetch(PDO::FETCH_ASSOC);
         return $rec;
     }
+
     public function addMypageByImage($id,$fname)
     {
-        $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = ".$id;
+        $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = " .$id;
         error_log("sql=" . $sql);
         $stm = $this->db->prepare($sql);
         $stm->execute();

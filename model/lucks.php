@@ -12,7 +12,8 @@
         $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
         $this->db = new PDO($dsn, $user, $password);
     }
-    public function addContent($name)
+
+    public function addContent($id,$fname)
     {
         $sql = "INSERT INTO lucks (content) VALUES ('" . $name . "')";
         error_log("sql=" . $sql);
@@ -20,15 +21,17 @@
         $stm->execute();
         return $this->db->lastInsertId();
     }
+
     public function updateImage($id,$fname)
     {
-        $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = ".$id;
+        $sql = "UPDATE lucks set attach_filename = '" . $fname . "' WHERE id = " .$id;
         error_log("sql=" . $sql);
         $stm = $this->db->prepare($sql);
         $stm->execute();
         return $this->db->lastInsertId();
     }
-    public function getLuckByAll($id,$content,$attach_filename,$deleted_at)
+
+    public function getLuckByAll($id,$fname)
     {
         $sql = "SELECT * FROM lucks";
         error_log("sql=" . $sql);
