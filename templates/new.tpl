@@ -15,7 +15,5 @@
     <input type="submit" value="確認する">
   </form>
 </div>
-
-
 </body>
 </html>
