@@ -4,7 +4,7 @@ require_once('lib/smarty/Smarty.class.php');
 session_start();
 if (isset($_SESSION['id'])) {
     header('Location: http://192.168.33.10:3000/luckfile/index.php');
-exit();
+exit ();
 }
 $smarty = new Smarty();
 $smarty->template_dir = '../templates/';
