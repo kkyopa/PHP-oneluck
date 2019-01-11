@@ -13,14 +13,14 @@ if (! isset($_SESSION['id'])) {
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
     $rec = $mypage->getMypageByUsers($name);
-    echo $rec["name"]. "さん、ようこそ <br>";
-    echo "メールアドレス". $rec["email"];
+    echo $rec["name"] ."さん、ようこそ <br>";
+    echo "メールアドレス" .$rec["email"];
     echo "<br>";
     echo "プロフィール画像";
     echo "<br>";
 
     if ($rec['attach_filename']) {
-        echo "<td><img src='../login/mypage_images/" . $rec['attach_filename'] . "'/></td>";
+        echo "<td><img src='../login/mypage_images/" .$rec['attach_filename'] . "'/></td>";
     } else {
         echo "<td>no image</td>";
     }
