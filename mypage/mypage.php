@@ -2,7 +2,7 @@
 <?php
 require_once('../config.php');
 session_start();
-if(! isset($_SESSION['id'])) {
+if (! isset($_SESSION['id'])) {
     print'ログインされていません。<br />';
     print'<a href="../login/">login</a>';
     exit();
@@ -18,9 +18,10 @@ if(! isset($_SESSION['id'])) {
     echo "<br>";
     echo "プロフィール画像";
     echo "<br>";
-        if ($rec['attach_filename']) {
-            echo "<td><img src='../login/mypage_images/" . $rec['attach_filename'] . "'/></td>";
-        } else {
-            echo "<td>no image</td>";
-        }
+
+    if ($rec['attach_filename']) {
+        echo "<td><img src='../login/mypage_images/" . $rec['attach_filename'] . "'/></td>";
+    } else {
+        echo "<td>no image</td>";
+    }
 }
