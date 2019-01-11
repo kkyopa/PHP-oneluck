@@ -13,7 +13,7 @@ if ($_SESSION['id']) {
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
-    $record = $mypage->getIndexByName($name);
+    $record = $mypage->getIndexByName($record, $session);
     echo $record["name"] . "さん、ログイン中";
     echo '<a href="/login/logout.php">ログアウト</a>';
 } else { ?>

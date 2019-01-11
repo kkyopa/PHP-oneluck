@@ -12,7 +12,7 @@ if (! isset($_SESSION['id'])) {
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
-    $rec = $mypage->getMypageByUsers($name);
+    $rec = $mypage->getMypageByUsers($rec, $session);
     echo $rec["name"] . "さん、ようこそ <br>";
     echo "メールアドレス" . $rec["email"];
     echo "<br>";
