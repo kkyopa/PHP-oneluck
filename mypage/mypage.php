@@ -13,8 +13,8 @@ if (! isset($_SESSION['id'])) {
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
     $rec = $mypage->getMypageByUsers($name);
-    echo $rec["name"] ."さん、ようこそ <br>";
-    echo "メールアドレス" .$rec["email"];
+    echo $rec["name"] . "さん、ようこそ <br>";
+    echo "メールアドレス" . $rec["email"];
     echo "<br>";
     echo "プロフィール画像";
     echo "<br>";
