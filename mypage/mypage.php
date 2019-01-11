@@ -3,7 +3,7 @@
 require_once('../config.php');
 session_start();
 if (! isset($_SESSION['id'])) {
-    print'ログインされていません。<br />';
+    print'ログインされていません。 <br />';
     print'<a href="../login/">login</a>';
     exit();
 } else {
@@ -13,7 +13,7 @@ if (! isset($_SESSION['id'])) {
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
     $rec = $mypage->getMypageByUsers($name);
-    echo $rec["name"]. "さん、ようこそ<br>";
+    echo $rec["name"]. "さん、ようこそ <br>";
     echo "メールアドレス". $rec["email"];
     echo "<br>";
     echo "プロフィール画像";
