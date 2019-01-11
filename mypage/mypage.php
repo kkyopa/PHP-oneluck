@@ -3,8 +3,8 @@
 require_once('../config.php');
 session_start();
 if (! isset($_SESSION['id'])) {
-    print'ログインされていません。 <br />';
-    print'<a href="../login/">login</a>';
+    print 'ログインされていません。 <br />';
+    print '<a href="../login/">login</a>';
     exit();
 } else {
     require_once('../config.php');
