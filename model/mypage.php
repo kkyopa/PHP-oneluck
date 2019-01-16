@@ -5,7 +5,7 @@ class Mypage
     function __construct()
     {
         require_once('../config.php');
-        $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
+        $this->db = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     }
 
     public function getIndexByName($session_id)
@@ -42,7 +42,7 @@ class Mypage
     {
         $sql='SELECT * FROM mypage WHERE id=?';
         $stmt=$this->db->prepare($sql);
-        $stmt->execute($session_id);
+        $stmt->execute();
         $rec=$stmt->fetch(PDO::FETCH_ASSOC);
         return $rec;
     }
