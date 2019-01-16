@@ -12,7 +12,7 @@ class Mypage
     {
         $sql='SELECT name FROM mypage WHERE id=?';
         $stmt=$this->db->prepare($sql);
-        $params = $session;
+        $params = $session_id;
         $stmt->execute($params);
         $record = $stmt->fetch(PDO::FETCH_ASSOC);
         return $record;
@@ -42,7 +42,7 @@ class Mypage
     {
         $sql='SELECT * FROM mypage WHERE id=?';
         $stmt=$this->db->prepare($sql);
-        $stmt->execute($session);
+        $stmt->execute($session_id);
         $rec=$stmt->fetch(PDO::FETCH_ASSOC);
         return $rec;
     }
