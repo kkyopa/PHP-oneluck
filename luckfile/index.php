@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
-　<head>
-　  <title>みんなの投稿</title>
+  <head>
+  <title>みんなの投稿</title>
     <meta charset="utf-8">
   </head>
 <body>
 <?php
 session_start();
 if ($_SESSION['id']) {
+    $session_id = $_SESSION['id'];
     require_once('../config.php');
     require_once("model/mypage.php");
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
-    $record = $mypage->getIndexByName($record, $session);
+    $record = $mypage->getIndexByName($record, $session_id);
     echo $record["name"] . "さん、ログイン中";
     echo '<a href="/login/logout.php">ログアウト</a>';
 } else { ?>

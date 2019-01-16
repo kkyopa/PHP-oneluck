@@ -1,5 +1,4 @@
 <?php
-$session = $_SESSION['id'];
 class Mypage
 {
     private $db;
@@ -9,7 +8,7 @@ class Mypage
       $pdo = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     }
 
-    public function getIndexByName($record, $session)
+    public function getIndexByName($record, $session_id);
     {
         $sql='SELECT name FROM mypage WHERE id=?';
         $stmt=$this->db->prepare($sql);
@@ -19,7 +18,7 @@ class Mypage
         return $record;
     }
 
-    public function addMypageByUser($name, $email, $pass)
+    public function addMypageByUser($name, $email, $pass);
     {
         $sql = "INSERT INTO mypage (name, email, password) VALUES ('" . $name . "', '" . $email . "', '" . $pass . "')";
         error_log("sql=" . $sql);
@@ -28,7 +27,7 @@ class Mypage
         return $this->db->lastInsertId();
     }
 
-    public function loginMypageByUser($mypage_email, $mypage_pass)
+    public function loginMypageByUser($mypage_email, $mypage_pass);
     {
         $sql='SELECT * FROM mypage WHERE email=? AND password=?';
         $stmt=$this->db->prepare($sql);
@@ -39,7 +38,7 @@ class Mypage
         return $rec;
     }
 
-    public function getMypageByUsers($rec, $session)
+    public function getMypageByUsers($rec, $session_id);
     {
         $sql='SELECT * FROM mypage WHERE id=?';
         $stmt=$this->db->prepare($sql);
@@ -48,7 +47,7 @@ class Mypage
         return $rec;
     }
 
-    public function addMypageByImage($id, $fname)
+    public function addMypageByImage($id, $fname);
     {
         $sql = "UPDATE mypage set attach_filename = '" . $fname . "' WHERE id = " .$id;
         error_log("sql=" . $sql);
