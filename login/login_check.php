@@ -14,7 +14,7 @@ try
     $dbh=new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $mypage = new Mypage();
-    $rec = $mypage->loginMypageByUser($mypage_email,$mypage_pass);
+    $rec = $mypage->loginMypageByUser($mypage_email, $mypage_pass);
     if ($rec == false) {
         print 'メールアドレスかパスワードが間違っています。<br />';
         print '<a href="/login/index.html"> 戻る</a>';
