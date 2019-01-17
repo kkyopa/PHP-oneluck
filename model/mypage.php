@@ -42,7 +42,8 @@ class Mypage
     {
         $sql='SELECT * FROM mypage WHERE id=?';
         $stmt=$this->db->prepare($sql);
-        $stmt->execute();
+        $params = [$session_id];
+        $stmt->execute($params);
         $rec=$stmt->fetch(PDO::FETCH_ASSOC);
         return $rec;
     }

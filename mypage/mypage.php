@@ -2,8 +2,8 @@
 <?php
 require_once('../config.php');
 session_start();
+$session_id = $_SESSION['id'];
 if (! isset($_SESSION['id'])) {
-    $session_id = $_SESSION['id'];
     print 'ログインされていません。 <br />';
     print '<a href="../login/">login</a>';
     exit();
