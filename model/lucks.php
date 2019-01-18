@@ -27,7 +27,7 @@
         return $this->db->lastInsertId();
     }
 
-    public function getLuckByAll($id)
+    public function getLuckByAll()
     {
         $sql = "SELECT * FROM lucks";
         error_log("sql=" . $sql);
