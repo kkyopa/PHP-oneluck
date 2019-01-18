@@ -5,15 +5,11 @@
     private $db;
     function __construct()
     {
-        $user = root;
-        $password = hoge;
-        $dbname = 'one_luck';
-        $host = 'localhost';
-        $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8";
-        $this->db = new PDO($dsn, $user, $password);
+        require_once('../config.php');
+        $this->db = new PDO('mysql:host=127.0.0.1;dbname=one_luck;charset=utf8', 'root', DB_PASSWORD);
     }
 
-    public function addContent($id, $fname)
+    public function addContent($name)
     {
         $sql = "INSERT INTO lucks (content) VALUES ('" . $name . "')";
         error_log("sql=" . $sql);
@@ -31,7 +27,7 @@
         return $this->db->lastInsertId();
     }
 
-    public function getLuckByAll($id, $fname)
+    public function getLuckByAll()
     {
         $sql = "SELECT * FROM lucks";
         error_log("sql=" . $sql);
