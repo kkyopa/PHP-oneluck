@@ -10,7 +10,7 @@
 <form action="edit_exec.php" method="post">
 <table border='1'>
   <tr>
-    <td>内容</td>"
+    <td>内容</td>
     <td>
       <input type='text' name='content'value='{$content}'/>
     </td>
